@@ -1,13 +1,11 @@
 import { Component, EventEmitter } from 'angular2/core';
 import { FoodListComponent } from './food-list.component';
 import { Food } from './food.model';
-import { NewFoodComponent } from './new-food.component';
+
 
 @Component({
   selector: 'my-app',
-  inputs: ['foodList'],
-  outputs: ['onFoodSelect'],
-   directives: [FoodListComponent],
+  directives: [FoodListComponent],
   template: `
   <div class="container">
     <h1>Nutrition Tracker</h1>
@@ -26,5 +24,8 @@ export class AppComponent {
       new Food("Chipotle Burrito", 1000, "no cheese", 2),
       new Food("Cookie Dough Ice Cream", 810, "just shame", 3)
     ]
+  }
+  foodWasSelected(clickedFood: Food): void {
+    
   }
 }

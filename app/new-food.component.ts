@@ -20,7 +20,7 @@ import { Food } from './food.model';
   </div>
   </div>
   <div class="add-button">
-  <button (click)="addFood(newName, newCalories, newDetails)" class="btn-success btn-lg add-button">Add Meal</button>
+  <button (click)="addFood(newName, newCalories, newDetails)" class="btn-success btn-lg add-button">Add Food</button>
   </div>
   `
 })
@@ -29,8 +29,11 @@ export class NewFoodComponent {
   constructor(){
     this.onSubmitNewFood = new EventEmitter();
   }
-  addFood(userName: HTMLInputElement, userCalories: HTMLInputElement, userDetails: HTMLInputElement){
-    var FoodParameters: [userName.value, parseInt(userCalories.value), userDetails.value];
-    this.onSubmitNewFood.emit(FoodParameters);
+  addFood(newFoodNameInput: HTMLInputElement, newFoodDetailsInput: HTMLInputElement, newFoodCaloriesInput: HTMLInputElement){
+  var newFood = new Food(newFoodNameInput.value, parseInt(newFoodCaloriesInput.value),  newFoodDetailsInput.value,0);
+  this.onSubmitNewFood.emit(newFood);
+  newFoodNameInput.value = "";
+  newFoodDetailsInput.value = "";
+  newFoodCaloriesInput.value = "";
   }
 }
