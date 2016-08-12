@@ -1,22 +1,30 @@
-import { Component } from 'angular2/core';
-import { Object } from './object.model';
-
+import { Component, EventEmitter } from 'angular2/core';
+import { FoodListComponent } from './food-list.component';
+import { Food } from './food.model';
+import { NewFoodComponent } from './new-food.component';
 
 @Component({
   selector: 'my-app',
+  inputs: ['foodList'],
+  outputs: ['onFoodSelect'],
+   directives: [FoodListComponent],
   template: `
-    <h1>testing</h1>
+  <div class="container">
+    <h1>Nutrition Tracker</h1>
+      <food-list [foodList]="foods" (onFoodSelect)="foodWasSelected($event)">
+      </food-list>
+      </div>
   `
 })
 
 export class AppComponent {
-  public objects: Object[];
+  public foods: Food[];
   constructor() {
-    this.objects = [
-      new Object("Object1", 0),
-      new Object("Object2", 1),
-      new Object("Object3", 2),
-      new Object("Object4", 3)
+    this.foods = [
+      new Food("Big Bowl", 525, "vegan", 0),
+      new Food( "Acai Bowl", 385, "none", 1),
+      new Food("Chipotle Burrito", 1000, "no cheese", 2),
+      new Food("Cookie Dough Ice Cream", 810, "just shame", 3)
     ]
   }
 }

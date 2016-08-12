@@ -1,8 +1,8 @@
-# Angular2 Template
+# Nutrition Tracker
 
-#### An Template for Angular2 Apps
+#### 
 
-#### Made by Charles Ewel and Rachael Bermudes
+#### Made by Rachael Bermudes
 
 ## Description
 
