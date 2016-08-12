@@ -10,7 +10,7 @@ import { CaloriesPipe } from './calories.pipe';
   inputs: ['foodList'],
   outputs: ['onFoodSelect'],
   directives: [FoodComponent, EditFoodDetailsComponent, NewFoodComponent],
-  pipes: [],
+  pipes: [CaloriesPipe],
   template: `
   <select (change)="onFoodChange($event.target.value)" class="filter input-lg">
     <option value="all" selected="selected">Show All</option>
