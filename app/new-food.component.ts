@@ -3,7 +3,7 @@ import { Food } from './food.model';
 
 @Component({
   selector: 'new-food',
-  outputs: ['onSubmitFood'],
+  outputs: ['onSubmitNewFood'],
   template: `
   <div class="new-meal">
   <div class="container">
@@ -25,15 +25,18 @@ import { Food } from './food.model';
   `
 })
 export class NewFoodComponent {
-  public onSubmitNewFood: EventEmitter<String>;
+  public onSubmitNewFood: EventEmitter<Food>;
+
   constructor(){
     this.onSubmitNewFood = new EventEmitter();
   }
-  addFood(newFoodNameInput: HTMLInputElement, newFoodDetailsInput: HTMLInputElement, newFoodCaloriesInput: HTMLInputElement){
-  var newFood = new Food(newFoodNameInput.value, parseInt(newFoodCaloriesInput.value), newFoodDetailsInput.value,  0);
-  this.onSubmitNewFood.emit(newFood);
-  newFoodNameInput.value = "";
-  newFoodCaloriesInput.value = "";
-  newFoodDetailsInput.value = "";
+
+  addFood(newFoodNameInput: HTMLInputElement, newFoodCaloriesInput: HTMLInputElement, newFoodDetailsInput: HTMLInputElement, ) {
+    var newFood = new Food(newFoodNameInput.value, parseInt(newFoodCaloriesInput.value), newFoodDetailsInput.value,  0);
+    console.log(newFood);
+    this.onSubmitNewFood.emit(newFood);
+    newFoodNameInput.value = "";
+    newFoodCaloriesInput.value = "";
+    newFoodDetailsInput.value = "";
   }
 }
