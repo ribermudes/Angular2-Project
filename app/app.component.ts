@@ -19,13 +19,13 @@ export class AppComponent {
   public foods: Food[];
   constructor() {
     this.foods = [
-      new Food("Big Bowl", 525, "vegan", 0),
+      new Food("Big Bowl", 475, "vegan", 0),
       new Food( "Acai Bowl", 385, "none", 1),
       new Food("Chipotle Burrito", 1000, "no cheese", 2),
       new Food("Cookie Dough Ice Cream", 810, "just shame", 3)
     ]
   }
   foodWasSelected(clickedFood: Food): void {
-    
+
   }
 }

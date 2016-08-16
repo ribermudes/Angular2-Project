@@ -9,11 +9,11 @@ import { Food } from './food.model';
 export class CaloriesPipe implements PipeTransform {
   transform(foodList: Food[], args) {
     var userDropDownSelection = args[0];
-    if (userDropDownSelection === 'healthy'){
+    if (userDropDownSelection === 'low'){
       return foodList.filter((food) =>{
         return food.calories <= 500;
       });
-    } else if (userDropDownSelection === 'notHealthy'){
+    } else if (userDropDownSelection === 'high'){
         return foodList.filter((food) =>{
           return food.calories > 500;
       });
